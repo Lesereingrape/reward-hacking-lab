@@ -1,0 +1,191 @@
+{
+  "config": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "rounds": 6,
+    "n_train": 600,
+    "n_eval": 500,
+    "n_candidates": 8,
+    "temperature": 1.0,
+    "pretrain_steps": 200,
+    "rft_steps": 250,
+    "rm_label_k": 5,
+    "rm_specs": {
+      "rm_small": {
+        "rows": 150,
+        "d_model": 64,
+        "n_layer": 2,
+        "steps": 500
+      },
+      "rm_large": {
+        "rows": 2500,
+        "d_model": 64,
+        "n_layer": 2,
+        "steps": 900
+      }
+    },
+    "params_policy": 103055
+  },
+  "variants": {
+    "oracle": {
+      "base_acc": 0.6127,
+      "rm_holdout_acc": null,
+      "curve": [
+        {
+          "round": 1,
+          "true_acc": 0.73,
+          "true_acc_std": 0.2077,
+          "proxy": null,
+          "sel_precision": 0.88
+        },
+        {
+          "round": 2,
+          "true_acc": 0.7747,
+          "true_acc_std": 0.1672,
+          "proxy": null,
+          "sel_precision": 0.9167
+        },
+        {
+          "round": 3,
+          "true_acc": 0.7927,
+          "true_acc_std": 0.1569,
+          "proxy": null,
+          "sel_precision": 0.9206
+        },
+        {
+          "round": 4,
+          "true_acc": 0.8207,
+          "true_acc_std": 0.1375,
+          "proxy": null,
+          "sel_precision": 0.9222
+        },
+        {
+          "round": 5,
+          "true_acc": 0.824,
+          "true_acc_std": 0.1391,
+          "proxy": null,
+          "sel_precision": 0.9244
+        },
+        {
+          "round": 6,
+          "true_acc": 0.8407,
+          "true_acc_std": 0.1456,
+          "proxy": null,
+          "sel_precision": 0.9267
+        }
+      ],
+      "final_true_acc": 0.8407,
+      "peak_true_acc": 0.8407,
+      "final_proxy": null,
+      "final_sel_precision": 0.9267
+    },
+    "rm_small": {
+      "base_acc": 0.6127,
+      "rm_holdout_acc": 0.5691,
+      "curve": [
+        {
+          "round": 1,
+          "true_acc": 0.35,
+          "true_acc_std": 0.1846,
+          "proxy": 0.6162,
+          "sel_precision": 0.3011
+        },
+        {
+          "round": 2,
+          "true_acc": 0.22,
+          "true_acc_std": 0.0988,
+          "proxy": 0.684,
+          "sel_precision": 0.2039
+        },
+        {
+          "round": 3,
+          "true_acc": 0.176,
+          "true_acc_std": 0.0732,
+          "proxy": 0.7155,
+          "sel_precision": 0.1705
+        },
+        {
+          "round": 4,
+          "true_acc": 0.1633,
+          "true_acc_std": 0.0621,
+          "proxy": 0.7101,
+          "sel_precision": 0.1672
+        },
+        {
+          "round": 5,
+          "true_acc": 0.172,
+          "true_acc_std": 0.0701,
+          "proxy": 0.7235,
+          "sel_precision": 0.1628
+        },
+        {
+          "round": 6,
+          "true_acc": 0.1467,
+          "true_acc_std": 0.063,
+          "proxy": 0.7222,
+          "sel_precision": 0.1594
+        }
+      ],
+      "final_true_acc": 0.1467,
+      "peak_true_acc": 0.35,
+      "final_proxy": 0.7222,
+      "final_sel_precision": 0.1594
+    },
+    "rm_large": {
+      "base_acc": 0.6127,
+      "rm_holdout_acc": 0.6709,
+      "curve": [
+        {
+          "round": 1,
+          "true_acc": 0.3533,
+          "true_acc_std": 0.179,
+          "proxy": 0.5317,
+          "sel_precision": 0.3589
+        },
+        {
+          "round": 2,
+          "true_acc": 0.2487,
+          "true_acc_std": 0.1424,
+          "proxy": 0.5738,
+          "sel_precision": 0.2833
+        },
+        {
+          "round": 3,
+          "true_acc": 0.2247,
+          "true_acc_std": 0.141,
+          "proxy": 0.5912,
+          "sel_precision": 0.2517
+        },
+        {
+          "round": 4,
+          "true_acc": 0.2047,
+          "true_acc_std": 0.1372,
+          "proxy": 0.599,
+          "sel_precision": 0.2383
+        },
+        {
+          "round": 5,
+          "true_acc": 0.186,
+          "true_acc_std": 0.125,
+          "proxy": 0.6026,
+          "sel_precision": 0.2317
+        },
+        {
+          "round": 6,
+          "true_acc": 0.1933,
+          "true_acc_std": 0.1356,
+          "proxy": 0.6158,
+          "sel_precision": 0.2267
+        }
+      ],
+      "final_true_acc": 0.1933,
+      "peak_true_acc": 0.3533,
+      "final_proxy": 0.6158,
+      "final_sel_precision": 0.2267
+    }
+  },
+  "runtime_sec": 765.6
+}
