@@ -13,7 +13,11 @@ severity while sharing the same selection algorithm.
 
 from __future__ import annotations
 
+import platform
 import random
+import sys
+
+import torch
 
 from rhlab.data import sample_examples
 from rhlab.model import TinyTransformer, count_parameters
@@ -82,9 +86,26 @@ def _run_variant(kind: str, seed, base, train_ex, eval_ex, rm, rounds: int):
     return curve
 
 
+def environment() -> dict:
+    """The machine a run must be reproduced on to be bit-exact.
+
+    Float reduction order over a batch follows the thread count and the torch build,
+    so the artifact names its environment instead of claiming a reproducibility that
+    only holds inside it.
+    """
+    return {
+        "python": sys.version.split()[0],
+        "platform": platform.platform(),
+        "torch": torch.__version__,
+        "threads": torch.get_num_threads(),
+        "device": "cpu",
+    }
+
+
 def run_seed(seed: int, rounds: int = ROUNDS):
     base, train_ex, eval_ex = _base_policy(seed)
     out = {
+        "seed": seed,
         "oracle": {"base_acc": round(evaluate_answer(base, eval_ex), 4),
                    "rm_holdout_acc": None,
                    "curve": _run_variant("oracle", seed, base, train_ex, eval_ex, None, rounds)}
@@ -125,6 +146,11 @@ def aggregate(per_seed, rounds: int = ROUNDS):
             "peak_true_acc": round(max(c["true_acc"] for c in curve_rows), 4),
             "final_proxy": curve_rows[-1]["proxy"],
             "final_sel_precision": curve_rows[-1]["sel_precision"],
+            # The raw per-seed trajectories behind the mean curve: a test recomputes
+            # the published means from these, and the README says in words whether
+            # every seed hacks or only some of them do.
+            "true_acc_per_seed": {str(r["seed"]): [c["true_acc"] for c in r[v]["curve"]]
+                                  for r in per_seed},
         }
     return agg
 
@@ -145,5 +171,6 @@ def build_results(per_seed, rounds: int = ROUNDS, runtime: float = 0.0) -> dict:
             "params_policy": POLICY_PARAMS,
         },
         "variants": aggregate(per_seed, rounds),
+        "environment": environment(),
         "runtime_sec": round(runtime, 1),
     }

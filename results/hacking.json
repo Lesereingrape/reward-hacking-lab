@@ -31,161 +31,246 @@
   },
   "variants": {
     "oracle": {
-      "base_acc": 0.6127,
+      "base_acc": 0.6087,
       "rm_holdout_acc": null,
       "curve": [
         {
           "round": 1,
-          "true_acc": 0.73,
-          "true_acc_std": 0.2077,
+          "true_acc": 0.7273,
+          "true_acc_std": 0.1815,
           "proxy": null,
-          "sel_precision": 0.88
+          "sel_precision": 0.8917
         },
         {
           "round": 2,
-          "true_acc": 0.7747,
-          "true_acc_std": 0.1672,
+          "true_acc": 0.774,
+          "true_acc_std": 0.1549,
           "proxy": null,
-          "sel_precision": 0.9167
+          "sel_precision": 0.9256
         },
         {
           "round": 3,
-          "true_acc": 0.7927,
-          "true_acc_std": 0.1569,
+          "true_acc": 0.7747,
+          "true_acc_std": 0.1443,
           "proxy": null,
-          "sel_precision": 0.9206
+          "sel_precision": 0.9283
         },
         {
           "round": 4,
-          "true_acc": 0.8207,
-          "true_acc_std": 0.1375,
+          "true_acc": 0.7927,
+          "true_acc_std": 0.1296,
           "proxy": null,
-          "sel_precision": 0.9222
+          "sel_precision": 0.9283
         },
         {
           "round": 5,
-          "true_acc": 0.824,
-          "true_acc_std": 0.1391,
+          "true_acc": 0.8033,
+          "true_acc_std": 0.1264,
           "proxy": null,
-          "sel_precision": 0.9244
+          "sel_precision": 0.9256
         },
         {
           "round": 6,
-          "true_acc": 0.8407,
-          "true_acc_std": 0.1456,
+          "true_acc": 0.8253,
+          "true_acc_std": 0.1058,
           "proxy": null,
           "sel_precision": 0.9267
         }
       ],
-      "final_true_acc": 0.8407,
-      "peak_true_acc": 0.8407,
+      "final_true_acc": 0.8253,
+      "peak_true_acc": 0.8253,
       "final_proxy": null,
-      "final_sel_precision": 0.9267
+      "final_sel_precision": 0.9267,
+      "true_acc_per_seed": {
+        "0": [
+          0.628,
+          0.684,
+          0.688,
+          0.744,
+          0.776,
+          0.786
+        ],
+        "1": [
+          0.572,
+          0.646,
+          0.658,
+          0.664,
+          0.664,
+          0.72
+        ],
+        "2": [
+          0.982,
+          0.992,
+          0.978,
+          0.97,
+          0.97,
+          0.97
+        ]
+      }
     },
     "rm_small": {
-      "base_acc": 0.6127,
-      "rm_holdout_acc": 0.5691,
+      "base_acc": 0.6087,
+      "rm_holdout_acc": 0.5598,
       "curve": [
         {
           "round": 1,
-          "true_acc": 0.35,
-          "true_acc_std": 0.1846,
-          "proxy": 0.6162,
-          "sel_precision": 0.3011
+          "true_acc": 0.3027,
+          "true_acc_std": 0.1577,
+          "proxy": 0.6503,
+          "sel_precision": 0.2956
         },
         {
           "round": 2,
-          "true_acc": 0.22,
-          "true_acc_std": 0.0988,
-          "proxy": 0.684,
-          "sel_precision": 0.2039
+          "true_acc": 0.1913,
+          "true_acc_std": 0.0985,
+          "proxy": 0.7053,
+          "sel_precision": 0.2033
         },
         {
           "round": 3,
-          "true_acc": 0.176,
-          "true_acc_std": 0.0732,
-          "proxy": 0.7155,
-          "sel_precision": 0.1705
+          "true_acc": 0.1713,
+          "true_acc_std": 0.0893,
+          "proxy": 0.7188,
+          "sel_precision": 0.1733
         },
         {
           "round": 4,
-          "true_acc": 0.1633,
-          "true_acc_std": 0.0621,
-          "proxy": 0.7101,
-          "sel_precision": 0.1672
+          "true_acc": 0.1473,
+          "true_acc_std": 0.0627,
+          "proxy": 0.7283,
+          "sel_precision": 0.1633
         },
         {
           "round": 5,
-          "true_acc": 0.172,
-          "true_acc_std": 0.0701,
-          "proxy": 0.7235,
-          "sel_precision": 0.1628
+          "true_acc": 0.1367,
+          "true_acc_std": 0.0646,
+          "proxy": 0.7506,
+          "sel_precision": 0.1578
         },
         {
           "round": 6,
-          "true_acc": 0.1467,
-          "true_acc_std": 0.063,
-          "proxy": 0.7222,
-          "sel_precision": 0.1594
+          "true_acc": 0.1387,
+          "true_acc_std": 0.0773,
+          "proxy": 0.7509,
+          "sel_precision": 0.155
         }
       ],
-      "final_true_acc": 0.1467,
-      "peak_true_acc": 0.35,
-      "final_proxy": 0.7222,
-      "final_sel_precision": 0.1594
+      "final_true_acc": 0.1387,
+      "peak_true_acc": 0.3027,
+      "final_proxy": 0.7509,
+      "final_sel_precision": 0.155,
+      "true_acc_per_seed": {
+        "0": [
+          0.216,
+          0.134,
+          0.136,
+          0.104,
+          0.09,
+          0.082
+        ],
+        "1": [
+          0.168,
+          0.11,
+          0.084,
+          0.102,
+          0.092,
+          0.086
+        ],
+        "2": [
+          0.524,
+          0.33,
+          0.294,
+          0.236,
+          0.228,
+          0.248
+        ]
+      }
     },
     "rm_large": {
-      "base_acc": 0.6127,
-      "rm_holdout_acc": 0.6709,
+      "base_acc": 0.6087,
+      "rm_holdout_acc": 0.6467,
       "curve": [
         {
           "round": 1,
-          "true_acc": 0.3533,
-          "true_acc_std": 0.179,
-          "proxy": 0.5317,
-          "sel_precision": 0.3589
+          "true_acc": 0.3387,
+          "true_acc_std": 0.1551,
+          "proxy": 0.5499,
+          "sel_precision": 0.3172
         },
         {
           "round": 2,
-          "true_acc": 0.2487,
-          "true_acc_std": 0.1424,
-          "proxy": 0.5738,
-          "sel_precision": 0.2833
+          "true_acc": 0.1973,
+          "true_acc_std": 0.0766,
+          "proxy": 0.5977,
+          "sel_precision": 0.2239
         },
         {
           "round": 3,
-          "true_acc": 0.2247,
-          "true_acc_std": 0.141,
-          "proxy": 0.5912,
-          "sel_precision": 0.2517
+          "true_acc": 0.1647,
+          "true_acc_std": 0.0556,
+          "proxy": 0.6077,
+          "sel_precision": 0.1928
         },
         {
           "round": 4,
-          "true_acc": 0.2047,
-          "true_acc_std": 0.1372,
-          "proxy": 0.599,
-          "sel_precision": 0.2383
+          "true_acc": 0.15,
+          "true_acc_std": 0.0587,
+          "proxy": 0.6193,
+          "sel_precision": 0.1833
         },
         {
           "round": 5,
-          "true_acc": 0.186,
-          "true_acc_std": 0.125,
-          "proxy": 0.6026,
-          "sel_precision": 0.2317
+          "true_acc": 0.1453,
+          "true_acc_std": 0.067,
+          "proxy": 0.6235,
+          "sel_precision": 0.1778
         },
         {
           "round": 6,
-          "true_acc": 0.1933,
-          "true_acc_std": 0.1356,
-          "proxy": 0.6158,
-          "sel_precision": 0.2267
+          "true_acc": 0.154,
+          "true_acc_std": 0.0626,
+          "proxy": 0.6206,
+          "sel_precision": 0.1706
         }
       ],
-      "final_true_acc": 0.1933,
-      "peak_true_acc": 0.3533,
-      "final_proxy": 0.6158,
-      "final_sel_precision": 0.2267
+      "final_true_acc": 0.154,
+      "peak_true_acc": 0.3387,
+      "final_proxy": 0.6206,
+      "final_sel_precision": 0.1706,
+      "true_acc_per_seed": {
+        "0": [
+          0.23,
+          0.116,
+          0.114,
+          0.098,
+          0.1,
+          0.102
+        ],
+        "1": [
+          0.228,
+          0.176,
+          0.138,
+          0.12,
+          0.096,
+          0.118
+        ],
+        "2": [
+          0.558,
+          0.3,
+          0.242,
+          0.232,
+          0.24,
+          0.242
+        ]
+      }
     }
   },
-  "runtime_sec": 765.6
+  "environment": {
+    "python": "3.13.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.14.0+cpu",
+    "threads": 8,
+    "device": "cpu"
+  },
+  "runtime_sec": 874.6
 }
