@@ -67,11 +67,12 @@ def test_the_published_wall_clock_is_the_one_the_artifact_records():
     the number that *is* in `results/hacking.json` and leaves the other as the log it is.
     """
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    m = re.search(r"published (\d+(?:\.\d+)?)s", readme)
-    assert m, "the rerun paragraph no longer names the published runtime"
+    named = re.findall(r"published\s+(\d+(?:\.\d+)?)s(?![\d])", readme)
+    assert named, "the rerun paragraph no longer names the published runtime"
+    assert len(named) == 1, f"the README names the published runtime more than once: {named}"
     artifact = json.loads((ROOT / "results" / "hacking.json").read_text(encoding="utf-8"))
-    assert float(m.group(1)) == artifact["runtime_sec"], (
-        f"README says the published run took {m.group(1)}s, "
+    assert float(named[0]) == artifact["runtime_sec"], (
+        f"README says the published run took {named[0]}s, "
         f"results/hacking.json records {artifact['runtime_sec']}s")
 
 
