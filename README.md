@@ -136,6 +136,10 @@ field:
 python experiments/run_study.py --out /tmp/again.json
 ```
 
+We ran that diff: the scratch rerun came back with exactly one differing field in the
+whole artifact, `runtime_sec` (697.3s against the published 874.6s), while the three
+arms' curves, their per-seed accuracy traces and the environment block were identical.
+
 Std-devs and per-seed spreads are across the 3 seeded runs, which is 3 runs; where a
 gap between two arms sits inside that spread the text says so instead of selling it.
 
