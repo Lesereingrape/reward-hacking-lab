@@ -133,12 +133,19 @@ inside that environment, write a second run somewhere disposable and diff it fie
 field:
 
 ```bash
-python experiments/run_study.py --out /tmp/again.json
+python experiments/run_study.py --out again-check.json   # results/ stays untouched
 ```
+
+The scratch file is relative on purpose: Git-Bash rewrites a `/tmp/...` argument into
+`%TEMP%` before the CLI ever sees it, while cmd and PowerShell pass it through and leave the
+tool to create `<drive>:\tmp` — so `/tmp` is not one path across the shells this runs in.
 
 We ran that diff: the scratch rerun came back with exactly one differing field in the
 whole artifact, `runtime_sec` (697.3s against the published 874.6s), while the three
 arms' curves, their per-seed accuracy traces and the environment block were identical.
+The published half of that pair is in `results/hacking.json` and a test reads it back;
+the scratch file itself was thrown away, so 697.3 is a log of a run, not a number you
+can check.
 
 Std-devs and per-seed spreads are the **population** standard deviation across the 3
 seeded runs (`statistics.pstdev`, divided by n rather than n-1); where a gap between two

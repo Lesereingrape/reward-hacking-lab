@@ -8,3 +8,4 @@ dist/
 .pytest_cache/
 .ruff_cache/
 results/_study.*
+again-check.json

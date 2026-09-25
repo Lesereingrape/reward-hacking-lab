@@ -58,3 +58,28 @@ def test_readme_names_the_std_convention_the_tables_use():
     assert re.search("population[^.]{0,60}standard\\s+deviation", readme), (
         "the README no longer states which standard-deviation convention its "
         "`+/-` columns use")
+
+
+def test_the_published_wall_clock_is_the_one_the_artifact_records():
+    """The rerun paragraph names a runtime; only the published half of that pair is checkable.
+
+    The scratch run's own seconds are not committed and were not kept, so the test pins
+    the number that *is* in `results/hacking.json` and leaves the other as the log it is.
+    """
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    m = re.search(r"published (\d+(?:\.\d+)?)s", readme)
+    assert m, "the rerun paragraph no longer names the published runtime"
+    artifact = json.loads((ROOT / "results" / "hacking.json").read_text(encoding="utf-8"))
+    assert float(m.group(1)) == artifact["runtime_sec"], (
+        f"README says the published run took {m.group(1)}s, "
+        f"results/hacking.json records {artifact['runtime_sec']}s")
+
+
+def test_the_documented_rerun_path_survives_the_shells_this_runs_in():
+    """`--out /tmp/...` is not one path across shells, so the recipe must not use it."""
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert "--out /tmp/" not in readme, (
+        "the rerun recipe is back to a /tmp path; Git-Bash rewrites it before the CLI "
+        "sees it, so use a relative scratch file")
+    assert re.search(r"--out again-check\.json", readme), (
+        "the rerun recipe no longer names the relative scratch file it documents")
